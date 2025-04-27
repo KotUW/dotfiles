@@ -1,0 +1,4 @@
+copy = wl-copy
+host = irc.libera.chat
+nick = hasevil
+cert = libera-chat.pem
