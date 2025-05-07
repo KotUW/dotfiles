@@ -1,0 +1,13 @@
+[[language]]
+name = "python"
+formatter = {command = "ruff", args = ["format"]}
+language-servers = ["ruff"]
+
+[language-server.ruff]
+command = "ruff"
+args = ["server" ]
+
+[language-server.pyright]
+command = "basedpyright-langserver"
+args = ["--stdio" ]
+

@@ -1,0 +1,23 @@
+theme = "horizon-dark"
+
+[editor]
+cursorline = true
+color-modes = true
+bufferline = "multiple" 
+auto-format = true
+
+[editor.lsp]
+display-messages = true
+display-inlay-hints = true
+
+[editor.soft-wrap]
+enable = true
+
+[editor.indent-guides]
+render = true
+
+[keys.normal]
+# "A-/" = "toggle_comments"
+"C-/" = "toggle_comments"
+"C-c" = "no_op"
+
