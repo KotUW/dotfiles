@@ -1,4 +1,4 @@
-theme = light:"catppuccin-latte",dark:"catppuccin-mocha"
+theme = light:"dracula",dark:"Horizon"
 font-size = 18
 gtk-tabs-location=hidden
 keybind = performable:super+k=copy_url_to_clipboard
