@@ -3,6 +3,10 @@ name = "python"
 formatter = {command = "ruff", args = ["format"]}
 language-servers = ["ruff"]
 
+[[language]]
+name = "go"
+language-servers = []
+
 [language-server.ruff]
 command = "ruff"
 args = ["server" ]
