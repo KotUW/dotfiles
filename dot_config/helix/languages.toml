@@ -1,14 +1,14 @@
 [[language]]
 name = "python"
 formatter = {command = "ruff", args = ["format"]}
-language-servers = ["ruff"]
+language-servers = ["ty"]
 
 [[language]]
 name = "go"
 language-servers = []
 
-[language-server.ruff]
-command = "ruff"
+[language-server.ty]
+command = "ty"
 args = ["server" ]
 
 [language-server.pyright]

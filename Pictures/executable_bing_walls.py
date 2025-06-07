@@ -22,7 +22,7 @@ if not os.path.exists(cache_path):
         print("Couldn't find the hash  file\n Assuming first run. creating it.")
 
 hsh_files: list[str] = []
-lines = ""
+lines: str = ""
 with open(cache_path, "r") as fcf:
     lines = fcf.read()
     fcf.close()
@@ -37,7 +37,7 @@ for line in lines.split("\n"):
 # print(hsh_files)
 new_hsh: list[str] = []
 
-with urlopen(api_url) as res :
+with urlopen(api_url) as res:
     if res.status != 200:
         raise Exception("Bing returned : ", res.reason)
     images = json.loads(res.read())["images"]
