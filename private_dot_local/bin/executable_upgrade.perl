@@ -9,12 +9,11 @@ my $lock_file = "//home/eve/.cache/upgrade.lock";
 
 # test if lock file is older than 5 day or does not exists
 if (!-e $lock_file || (-M $lock_file) > 5) {
-    touch_lock();
-
     update_distro();
     update_flatpak();
     update_uv();
     update_firmware();
+    touch_lock();
 } else {
     print RED, "Lockfile is still younger, Please wait ", (5 - (-M $lock_file))*60, " hours.\n", RESET;
     }
@@ -60,7 +59,7 @@ sub update_flatpak {
 
 sub update_firmware {
     print UNDERLINE, "Updating firmware\n", RESET;
-    system("fwupdmgr refresh && fwupdmgr update");
+    system("fwupdmgr refresh && fwupdmgr get-updates");
 }
 
 # create lock file or modify acces time of the lockfile
