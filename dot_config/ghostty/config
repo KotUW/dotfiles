@@ -1,5 +1,5 @@
 theme = light:"BlulocoDark",dark:"Horizon"
-font-size = 18
+font-size = 16
 gtk-tabs-location=hidden
 keybind = performable:super+k=copy_url_to_clipboard
 cursor-style-blink = false

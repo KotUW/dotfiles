@@ -245,8 +245,6 @@ layout {
 // Add lines like this to spawn processes at startup.
 // Note that running niri as a session supports xdg-desktop-autostart,
 // which may be more convenient to use.
-// See the binds section below for more spawn examples.
-// spawn-at-startup "alacritty" "-e" "fish"
 spawn-at-startup "swww-daemon"
 spawn-at-startup "xwayland-satellite"
 
@@ -287,19 +285,12 @@ animations {
 // Work around WezTerm's initial configure bug
 // by setting an empty default-column-width.
 window-rule {
-    // This regular expression is intentionally made as specific as possible,
-    // since this is the default config, and we want no false positives.
-    // You can get away with just app-id="wezterm" if you want.
-    match app-id=r#"^org\.wezfurlong\.wezterm$"#
-    default-column-width {}
-}
-
-window-rule {
     match app-id=r#".*vivaldi.*"#
     match app-id=r#".*zen.*"#
     match app-id=r#".*chrome.*"#
     open-maximized true
 }
+
 window-rule {
     match app-id=r#".*ghostty.*"#
     default-column-width { proportion 0.75; }
