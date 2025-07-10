@@ -1,7 +1,20 @@
 theme = light:"AlienBlood",dark:"Arthur"
 font-size = 16
 gtk-tabs-location=hidden
-keybind = performable:super+k=copy_url_to_clipboard
+
+keybind = ctrl+t=new_tab
+keybind = ctrl+w=close_tab
+keybind = ctrl+right=next_tab
+keybind = ctrl+left=previous_tab
+
+keybind = performable:ctrl+shift+left=resize_split:left,10
+keybind = performable:ctrl+shift+right=resize_split:right,10
+keybind = performable:ctrl+shift+up=resize_split:up,10
+keybind = performable:ctrl+shift+down=resize_split:down,10
+keybind = performable:ctrl+shift+plus=equalize_splits
+
+keybind = performable:ctrl+shift+k=copy_url_to_clipboard
+
 cursor-style-blink = false
 cursor-style = block
 cursor-invert-fg-bg = false
