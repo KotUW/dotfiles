@@ -37,10 +37,10 @@ sub update_distro {
         print "pacman not found";
         return;
     }
-    system("sudo pacman -Syu --noconfirm");
+    system("run0 pacman -Syu --noconfirm");
 
     print UNDERLINE, "Removing unwanted packages\n", RESET;
-    system("sudo pacman -Rnc \$(pacman -Qdtq) --noconfirm");
+    system("run0 pacman -Rnc \$(pacman -Qdtq) --noconfirm");
 
     print BOLD, "\nThis doesn't touch AUR.\n", RESET;
 }
