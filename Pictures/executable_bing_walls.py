@@ -3,7 +3,7 @@ import os
 from urllib.request import urlretrieve, urlopen
 import json
 
-num_of_images = 10
+num_of_images = 30
 api_url = f"http://www.bing.com/HPImageArchive.aspx?format=js&idx=0&n={num_of_images}&mkt=en-CA"
 
 home = os.getenv("HOME")

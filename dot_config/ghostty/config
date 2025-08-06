@@ -1,4 +1,4 @@
-theme = light:"AlienBlood",dark:"Arthur"
+theme = light:"catppuccin-latte",dark:"Arthur"
 font-size = 16
 gtk-tabs-location=hidden
 

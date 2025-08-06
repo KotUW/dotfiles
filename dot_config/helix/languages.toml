@@ -5,7 +5,7 @@ language-servers = ["ty"]
 
 [[language]]
 name = "go"
-language-servers = []
+# language-servers = []
 
 [language-server.ty]
 command = "ty"
