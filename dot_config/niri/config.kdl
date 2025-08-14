@@ -346,8 +346,8 @@ binds {
     // Suggested binds for running programs: terminal, app launcher, screen locker.
     // fuzzel
     Mod+T { spawn "ghostty"; }
-    Mod+D { spawn "fuzzel"; }
-    Mod+G { spawn "fish" "-c" "'swww img -t any (random choice ~/Pictures/wall/* )'"; }
+    Mod+D { spawn "walker"; }
+    Mod+G { spawn "fish" "-c" "swww img -t any (random choice ~/Pictures/wall/* )"; }
 
     // You can also use a shell. Do this if you need pipes, multiple commands, etc.
     // Note: the entire command goes as a single argument in the end.

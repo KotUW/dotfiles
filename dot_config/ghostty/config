@@ -1,4 +1,4 @@
-theme = light:"catppuccin-latte",dark:"Arthur"
+theme = light:"farmhouse-light",dark:"Arthur"
 font-size = 16
 gtk-tabs-location=hidden
 
