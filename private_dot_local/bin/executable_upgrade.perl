@@ -3,7 +3,7 @@ use strict;
 use warnings;
 use Term::ANSIColor qw(:constants);
 
-print BOLD, UNDERLINE, "Upgrade manager v2 \n", RESET ;
+print BOLD, UNDERLINE, MAGENTA, "Upgrade manager v2.5 \n", RESET ;
 
 my $lock_file = "//home/eve/.cache/upgrade.lock";
 
@@ -13,55 +13,56 @@ if (!-e $lock_file || (-M $lock_file) > 5) {
     update_flatpak();
     update_uv();
     update_firmware();
+    update_rust();
     touch_lock();
 } else {
     print RED, "Lockfile is still younger, Please wait ", (5 - (-M $lock_file))*60, " hours.\n", RESET;
     }
 
 sub update_uv {
-    print UNDERLINE, "Updating UV python tools\n", RESET;
+    print UNDERLINE, BLUE,  "Updating UV python tools\n", RESET;
     if (not command_exists("uv")) {
         print "uv not found";
         return;
     }
-    my $uv_list_output = `uv tool list | rg ' v' | cut -f1 -d' '`;
-    my @uv_list = split(' ', $uv_list_output);
-    foreach my $uv (@uv_list) {
-        system("uv tool upgrade $uv");
-    }
+        system("uv tool upgrade --all");
 }
 
 sub update_distro {
-    print UNDERLINE, "Updating distro\n", RESET;
+    print UNDERLINE, BLUE,  "Updating distro\n", RESET;
     if (not command_exists("pacman")) {
         print "pacman not found";
         return;
     }
-    system("run0 pacman -Syu --noconfirm");
+    system("sudo pacman -Syu --noconfirm");
 
-    print UNDERLINE, "Removing unwanted packages\n", RESET;
-    system("run0 pacman -Rnc \$(pacman -Qdtq) --noconfirm");
+    print UNDERLINE,BLUE,   "Removing unwanted packages\n", RESET;
+    system("sudo pacman -Rnc --noconfirm \$(pacman -Qdtq)");
 
-    print BOLD, "\nThis doesn't touch AUR.\n", RESET;
+    print BOLD, RED, "\nThis doesn't touch AUR.\n", RESET;
 }
 
 sub update_flatpak {
-    print UNDERLINE, "Updating Flatpacks\n", RESET;
+    print UNDERLINE, BLUE,  "Updating Flatpacks\n", RESET;
     if (not command_exists("flatpak")) {
         print "flatpak not found";
         return;
     }
     system("flatpak upgrade --noninteractive");
 
-    print UNDERLINE, "Removing unwanted packages\n", RESET;
+    print UNDERLINE, BLUE,  "Removing unwanted packages\n", RESET;
     system("flatpak uninstall --unused --delete-data");
 }
 
 sub update_firmware {
-    print UNDERLINE, "Updating firmware\n", RESET;
+    print UNDERLINE, BLUE,  "Updating firmware\n", RESET;
     system("fwupdmgr refresh && fwupdmgr get-updates");
 }
 
+sub update_rust{
+    print UNDERLINE, BLUE,  "Updating rust toolchain\n", RESET;
+    system("rustup update");
+}
 # create lock file or modify acces time of the lockfile
 sub touch_lock{
     open my $fh , '>', $lock_file or die "Cannot open lock file: $!";
